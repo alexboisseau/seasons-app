@@ -1,0 +1,26 @@
+{
+  "name": "m1-react",
+  "version": "1.0.0",
+  "description": "Seasons App",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexboisseau/m1-react.git"
+  },
+  "author": "Alex Boisseau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexboisseau/m1-react/issues"
+  },
+  "homepage": "https://github.com/alexboisseau/m1-react#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.3.1"
+  }
+}
