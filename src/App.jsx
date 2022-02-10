@@ -1,3 +1,5 @@
+import SeasonCard from './components/SeasonCard';
+
 export default function App() {
-  return <h1>Seasons Application</h1>;
+  return <SeasonCard />;
 }
