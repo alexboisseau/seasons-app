@@ -1,7 +1,29 @@
+import { formatDistanceStrict, formatDistanceToNowStrict } from 'date-fns';
 import reactDom from 'react-dom';
 import './SeasonModal.css';
 
 export default function SeasonModal({ onBackClick, nextSeason }) {
+  const currentYear = new Date().getFullYear();
+
+  const beginAt = new Date(
+    currentYear + (nextSeason.name === 'Winter' ? -1 : 0),
+    nextSeason.beginAt.month - 1,
+    nextSeason.beginAt.day
+  );
+
+  const endAt = new Date(
+    currentYear,
+    nextSeason.endAt.month,
+    nextSeason.endAt.day
+  );
+
+  const startIn = formatDistanceToNowStrict(beginAt, {
+    unit: 'day',
+    addSuffix: true,
+  });
+
+  const duration = formatDistanceStrict(beginAt, endAt, { unit: 'day' });
+  console.log(duration);
   return reactDom.createPortal(
     <>
       <div className="modal-overlay">
@@ -14,8 +36,8 @@ export default function SeasonModal({ onBackClick, nextSeason }) {
               <h1 className="text-4xl font-bold">
                 {nextSeason.name} {nextSeason.icon}
               </h1>
-              <p className="mt-2 text-gray-500">Duration : 91 days</p>
-              <p className="text-gray-500">Start in : 15 days</p>
+              <p className="mt-2 text-gray-500">Duration : {duration}</p>
+              <p className="text-gray-500">Start {startIn}</p>
             </div>
             <button
               onClick={() => onBackClick()}
