@@ -31,6 +31,7 @@
     "eslint": "^8.9.0",
     "eslint-config-react-app": "^7.0.0",
     "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "parcel": "^2.3.1",
@@ -53,6 +54,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    },
     "coverageThreshold": {
       "global": {
         "statements": 66,
