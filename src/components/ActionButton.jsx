@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ActionButton({ label, action }) {
   return (
     <button
