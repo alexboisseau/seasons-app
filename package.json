@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel",
     "lint": "eslint src",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --coverage"
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,14 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "coverageThreshold": {
+      "global": {
+        "statements": 66,
+        "branches": 70,
+        "functions": 75,
+        "lines": 68
+      }
+    }
   }
 }
