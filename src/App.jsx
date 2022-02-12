@@ -6,11 +6,11 @@ import {
 
 import SeasonCard from './components/SeasonCard';
 import FallBackModal from './components/FallBackModal';
+
 const NextSeasonModal = lazy(() => import('./components/NextSeasonModal'));
 
 export default function App() {
   const [seasonModalIsShow, setSeasonModalIsShow] = useState(false);
-  console.log(seasonModalIsShow);
 
   const onClick = () => setSeasonModalIsShow(!seasonModalIsShow);
 
