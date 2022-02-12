@@ -1,12 +1,11 @@
-import { formatDistanceStrict, formatDistanceToNowStrict } from 'date-fns';
 import reactDom from 'react-dom';
 import { startIn, getSeasonDuration } from '../modules/season.module';
 
 import ActionButton from './ActionButton';
 
-import './SeasonModal.css';
+import './Modal.css';
 
-export default function SeasonModal({ onBackClick, nextSeason }) {
+export default function NextSeasonModal({ onBackClick, nextSeason }) {
   return reactDom.createPortal(
     <>
       <div className="modal-overlay">

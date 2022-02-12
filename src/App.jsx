@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import {
   determinateCurrentSeason,
   determinateNextSeason,
 } from './modules/season.module';
 
 import SeasonCard from './components/SeasonCard';
-import SeasonModal from './components/SeasonModal';
+import FallBackModal from './components/FallBackModal';
+const NextSeasonModal = lazy(() => import('./components/NextSeasonModal'));
 
 export default function App() {
   const [seasonModalIsShow, setSeasonModalIsShow] = useState(false);
+  console.log(seasonModalIsShow);
 
   const onClick = () => setSeasonModalIsShow(!seasonModalIsShow);
 
@@ -25,7 +27,9 @@ export default function App() {
       </div>
       <SeasonCard onClick={onClick} season={currentSeason} />
       {seasonModalIsShow ? (
-        <SeasonModal onBackClick={onClick} nextSeason={nextSeason} />
+        <Suspense fallback={<FallBackModal />}>
+          <NextSeasonModal onBackClick={onClick} nextSeason={nextSeason} />
+        </Suspense>
       ) : (
         false
       )}
