@@ -1,4 +1,5 @@
 import { formatDistanceToNowStrict } from 'date-fns';
+import ActionButton from './ActionButton';
 
 export default function SeasonCard({ onClick, season }) {
   const sinceDays = formatDistanceToNowStrict(
@@ -16,12 +17,7 @@ export default function SeasonCard({ onClick, season }) {
         {season.name} {season.icon}
       </h1>
       <p className="text-gray-500">Since {sinceDays}</p>
-      <button
-        className="mt-5 rounded bg-red-500 p-3 text-white shadow shadow-md hover:bg-red-600"
-        onClick={() => onClick()}
-      >
-        And after ?
-      </button>
+      <ActionButton label="And after ?" action={onClick} />
     </div>
   );
 }

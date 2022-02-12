@@ -1,5 +1,6 @@
 import { formatDistanceStrict, formatDistanceToNowStrict } from 'date-fns';
 import reactDom from 'react-dom';
+import ActionButton from './ActionButton';
 import './SeasonModal.css';
 
 export default function SeasonModal({ onBackClick, nextSeason }) {
@@ -23,7 +24,7 @@ export default function SeasonModal({ onBackClick, nextSeason }) {
   });
 
   const duration = formatDistanceStrict(beginAt, endAt, { unit: 'day' });
-  console.log(duration);
+
   return reactDom.createPortal(
     <>
       <div className="modal-overlay">
@@ -39,12 +40,7 @@ export default function SeasonModal({ onBackClick, nextSeason }) {
               <p className="mt-2 text-gray-500">Duration : {duration}</p>
               <p className="text-gray-500">Start {startIn}</p>
             </div>
-            <button
-              onClick={() => onBackClick()}
-              className="mt-5 rounded bg-red-500 p-3 text-white shadow shadow-md hover:bg-red-600"
-            >
-              Go back
-            </button>
+            <ActionButton label="Go back" action={onBackClick} />
           </div>
         </div>
       </div>
