@@ -23,17 +23,15 @@ function determinateCurrentSeason() {
     }
   });
 
-  if (currentSeasonName === '') return data.seasons.winter;
-  return data.seasons[currentSeasonName];
+  return currentSeasonName === ''
+    ? data.seasons.winter
+    : data.seasons[currentSeasonName];
 }
 
 export default function App() {
   const [seasonModalIsShow, setSeasonModalIsShow] = useState(false);
 
-  const onClick = () => {
-    const modalIsShow = seasonModalIsShow;
-    setSeasonModalIsShow(!modalIsShow);
-  };
+  const onClick = () => setSeasonModalIsShow(!seasonModalIsShow);
 
   const currentSeason = determinateCurrentSeason();
   const nextSeason = data.seasons[currentSeason.next];
