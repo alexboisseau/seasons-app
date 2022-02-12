@@ -1,4 +1,4 @@
-import { formatDistanceToNowStrict } from 'date-fns';
+import React from 'react';
 import { getDaysNumberSinceStartSeason } from '../modules/season.module';
 
 import ActionButton from './ActionButton';

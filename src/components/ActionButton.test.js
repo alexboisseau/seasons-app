@@ -5,9 +5,9 @@ import '@testing-library/jest-dom';
 import ActionButton from './ActionButton';
 
 // Test suites
-describe('Action Button Test', () => {
+describe('ActionButton Test', () => {
   // Test case
-  it('return a label', () => {
+  it('renders a label', () => {
     render(
       <ActionButton label={'Go back'} action={() => console.log('Action')} />
     );
