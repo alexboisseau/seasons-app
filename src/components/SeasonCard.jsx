@@ -1,15 +1,10 @@
 import { formatDistanceToNowStrict } from 'date-fns';
+import { getDaysNumberSinceStartSeason } from '../modules/season.module';
+
 import ActionButton from './ActionButton';
 
 export default function SeasonCard({ onClick, season }) {
-  const sinceDays = formatDistanceToNowStrict(
-    new Date(
-      new Date().getFullYear() + (season.name === 'Winter' ? -1 : 0),
-      season.beginAt.month - 1,
-      season.beginAt.day
-    ),
-    { unit: 'day', addSuffix: true }
-  );
+  const sinceDays = getDaysNumberSinceStartSeason(season);
 
   return (
     <div className="shadow-black-500/50 rounded bg-gray-100 py-24 px-16 text-center shadow-lg">

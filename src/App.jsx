@@ -1,32 +1,11 @@
-import { isWithinInterval } from 'date-fns';
 import { useState } from 'react';
+import {
+  determinateCurrentSeason,
+  determinateNextSeason,
+} from './modules/season.module';
 
 import SeasonCard from './components/SeasonCard';
 import SeasonModal from './components/SeasonModal';
-
-import data from './data/data.json';
-
-function determinateCurrentSeason() {
-  const currentYear = new Date().getFullYear();
-
-  let currentSeasonName = '';
-  Object.entries(data.seasons).forEach(([name, season]) => {
-    const start = new Date(
-      currentYear,
-      season.beginAt.month - 1,
-      season.beginAt.day
-    );
-    const end = new Date(currentYear, season.endAt.month - 1, season.endAt.day);
-
-    if (name !== 'winter' && isWithinInterval(new Date(), { start, end })) {
-      currentSeasonName = name;
-    }
-  });
-
-  return currentSeasonName === ''
-    ? data.seasons.winter
-    : data.seasons[currentSeasonName];
-}
 
 export default function App() {
   const [seasonModalIsShow, setSeasonModalIsShow] = useState(false);
@@ -34,7 +13,7 @@ export default function App() {
   const onClick = () => setSeasonModalIsShow(!seasonModalIsShow);
 
   const currentSeason = determinateCurrentSeason();
-  const nextSeason = data.seasons[currentSeason.next];
+  const nextSeason = determinateNextSeason(currentSeason);
 
   return (
     <div className="w-100 flex h-screen flex-col items-center justify-center">
