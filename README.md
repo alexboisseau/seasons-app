@@ -1,2 +1,3 @@
-# m1-react
-All exercices realized during React.js courses 🤖
+# Seasons App ❄️ 🍂 🌸 ☀️
+
+Realized this application during React Course at Ynov Campus.
