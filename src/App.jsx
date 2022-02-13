@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, Suspense, lazy } from 'react';
 import {
   determinateCurrentSeason,
@@ -18,7 +19,10 @@ export default function App() {
   const nextSeason = determinateNextSeason(currentSeason);
 
   return (
-    <div className="w-100 flex h-screen flex-col items-center justify-center">
+    <div
+      data-testid="app-content"
+      className="w-100 flex h-screen flex-col items-center justify-center"
+    >
       <div className="mb-10 text-center">
         <h1 className="text-4xl font-bold">Seasons Application</h1>
         <p className="text-gray-500">

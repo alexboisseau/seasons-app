@@ -7,7 +7,10 @@ export default function SeasonCard({ onClick, season }) {
   const sinceDays = getDaysNumberSinceStartSeason(season);
 
   return (
-    <div className="shadow-black-500/50 rounded bg-gray-100 py-24 px-16 text-center shadow-lg">
+    <div
+      data-testid="season-card"
+      className="shadow-black-500/50 rounded bg-gray-100 py-24 px-16 text-center shadow-lg"
+    >
       <h1 className="text-4xl font-bold">
         {season.name} {season.icon}
       </h1>

@@ -1,5 +1,4 @@
 import React from 'react';
-import reactDom from 'react-dom';
 import { startIn, getSeasonDuration } from '../modules/season.module';
 
 import ActionButton from './ActionButton';
@@ -14,7 +13,7 @@ export default function NextSeasonModal({ onBackClick, nextSeason }) {
           className="shadow-black-500/50 flex flex-col items-center justify-center rounded bg-gray-100 shadow-lg"
           style={{ height: '350px', width: '250px' }}
         >
-          <div className="text-center">
+          <div data-testid="next-season-modal" className="text-center">
             <h1 className="text-4xl font-bold">
               {nextSeason.name} {nextSeason.icon}
             </h1>
